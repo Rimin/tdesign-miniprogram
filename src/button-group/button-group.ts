@@ -5,7 +5,7 @@ const { prefix } = config;
 const name = `${prefix}-button-group`;
 
 TComponent({
-  behaviors: ['wx://form-field-button'],
+  // behaviors: ['wx://form-field-button'],
   // 组件的对外属性
   properties: {
     type: {

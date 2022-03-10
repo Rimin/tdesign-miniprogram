@@ -9,7 +9,7 @@ const name = `${prefix}-button`;
 export default class Button extends SuperComponent {
   externalClasses = [`${prefix}-class`, `${prefix}-class-icon`];
 
-  behaviors = ['wx://form-field-button'];
+  // behaviors = ['wx://form-field-button'];
 
   // 组件的对外属性
   properties = props;
