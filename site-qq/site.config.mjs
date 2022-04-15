@@ -50,7 +50,7 @@ export default {
           name: 'button',
           meta: { docType: 'base' },
           path: '/miniprogram/components/button',
-          component: () => import('@/button/wechat/README.md'),
+          component: () => import('@/button/qq/README.md'),
         },
         {
           title: 'Divider 分割线',

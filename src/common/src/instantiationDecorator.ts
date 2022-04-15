@@ -1,6 +1,7 @@
 import { isPlainObject, toObject } from './flatTool';
 
 import { SuperComponent } from './superComponent';
+import lodashMerge from 'lodash.merge';
 
 // 将 on 开头的生命周期函数转变成非 on 开头的
 const RawLifeCycles = ['Created', 'Attached', 'Ready', 'Moved', 'Detached', 'Error'];
@@ -114,13 +115,19 @@ export const toComponent = function toComponent(options: Record<string, any>) {
  * 将一个继承了 BaseComponent 的类转化成 小程序 Component 的调用
  * 根据最新的微信 d.ts 描述文件，Component 在实例化的时候，会忽略不支持的自定义属性
  */
-export const wxComponent = function wxComponent() {
+export const wxComponent = function wxComponent(baseConstructor?: new () => SuperComponent) {
   return function (constructor: new () => SuperComponent): void {
     class WxComponent extends constructor {
       // 暂时移除了冗余的代码，后续补充
     }
 
-    const current = new WxComponent();
+    let current = new WxComponent();
+
+    if (baseConstructor) {
+      class WxBaseComponent extends baseConstructor {}
+      const base = new WxBaseComponent();
+      current = lodashMerge(base, current);
+    }
 
     // 所有组件默认都开启css作用域
     // 写到这里是为了防止组件设置 options 时无意覆盖掉了 addGlobalClass
