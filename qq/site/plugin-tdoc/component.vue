@@ -8,7 +8,7 @@
         <!-- <QrCode :src="`https://tdesign.gtimg.com/miniprogram/qrcode/${name}.png`" /> -->
         <td-doc-phone>
           <div class="qrcode__wrapper" slot="qrcode">
-            <img class="qrcode" :src="`https://tdesign.gtimg.com/miniprogram/qrcode/${name}.png`" />
+            <img class="qrcode" :src="`https://m.q.qq.com/a/p/1111619982?s=subpages/${name}/${name}.png`" />
           </div>
           <iframe :src="liveUrl" frameborder="0" width="100%" height="100%" style="box-sizing: border-box; border-radius: 0 0 6px 6px; overflow: hidden; border-top: 8px solid #f8f8f8;"></iframe>
         </td-doc-phone>
@@ -68,9 +68,9 @@ export default defineComponent({
       tdDocTabs.onchange = ({ detail: currentTab }) => this.tab = currentTab;
       tdDocHeader.componentName = info.componentName;
     }
-    
+
     Prismjs.highlightAll();
-    
+
     tdDocHeader.spline = info.spline;
     tdDocHeader.docInfo = { title: info.title, desc: info.description };
 
@@ -94,7 +94,7 @@ export default defineComponent({
     background-color: #fff;
     border-radius: 6px 6px 0 0;
     border: 1px solid #DCDCDC;
-    
+
     &--gray {
       background-color: #eee;
     }
